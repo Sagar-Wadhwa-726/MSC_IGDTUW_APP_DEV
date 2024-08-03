@@ -91,29 +91,66 @@ class _LoginPageState extends State<LoginPage> {
                     //   decoration: InputDecoration(
                     //       hintText: "Enter Password", labelText: "Password"),
                     // ),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        InkWell(
+                          child: Text("Forgot Password ?"),
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, MyRoutes.resetPasswordRoute);
+                          },
+                        ),
+                      ],
+                    ),
                     SizedBox(height: 50),
-                    InkWell(
-                      onTap: () => moveToHomePage(context),
-                      child: AnimatedContainer(
-                        duration: Duration(seconds: 1),
-                        width: changedButton ? 50 : 150,
-                        height: 50,
-                        alignment: Alignment.center,
-                        child: changedButton
-                            ? Icon(Icons.done)
-                            : Text(
-                                "Login",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                              ),
-                        decoration: BoxDecoration(
-                            color: Colors.deepPurple,
-                            borderRadius:
-                                BorderRadius.circular(changedButton ? 50 : 8)),
-                      ),
-                    )
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          onTap: () => moveToHomePage(context),
+                          child: AnimatedContainer(
+                            duration: Duration(seconds: 1),
+                            width: changedButton ? 50 : 150,
+                            height: 50,
+                            alignment: Alignment.center,
+                            child: changedButton
+                                ? Icon(Icons.done)
+                                : Text(
+                                    "Login",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                            decoration: BoxDecoration(
+                                color: Colors.deepPurple,
+                                borderRadius: BorderRadius.circular(
+                                    changedButton ? 50 : 8)),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () => Navigator.pushNamed(
+                              context, MyRoutes.signUpRoute),
+                          child: Container(
+                            width: 150,
+                            height: 50,
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Sign Up",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.deepPurple,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                     // ElevatedButton(
                     //   style: TextButton.styleFrom(
                     //     minimumSize: Size(150, 40),

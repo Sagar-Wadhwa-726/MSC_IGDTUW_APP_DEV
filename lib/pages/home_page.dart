@@ -53,14 +53,14 @@ class HomePage extends StatelessWidget {
               leading: Icon(Icons.home),
               title: Text("Home"),
               onTap: () {
-                Navigator.pushNamed(context, MyRoutes.resetPasswordRoute);
+                Navigator.pop(context);
               },
             ),
             ListTile(
               leading: Icon(Icons.account_circle),
               title: Text("Profile"),
               onTap: () {
-                Navigator.pushNamed(context, MyRoutes.signUpRoute);
+                Navigator.pop(context);
               },
             ),
             ListTile(
