@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import "package:flutter/material.dart";
-import "package:flutter_catalog/pages/login_page.dart";
+import "package:flutter_catalog/utils/routes.dart";
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.redAccent,
         title: Text("Catalog App temp"),
       ),
       body: Center(
@@ -18,33 +18,67 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Text(
-              "Temp Flutter App Development",
+              "Welcome to Home Page",
               style: TextStyle(
-                backgroundColor: Colors.indigo,
-                color: Colors.orange,
                 height: 10,
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            ElevatedButton(
-              child: Text("Login"),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LoginPage(),
-                  ),
-                );
-              },
-            )
           ],
         ),
       ),
       drawer: Drawer(
-        backgroundColor: Colors.lightBlueAccent,
-        child: Column(
-          children: <Widget>[],
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(color: Colors.red),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Shopping App",
+                    style: TextStyle(color: Colors.white, fontSize: 24),
+                  ),
+                  SizedBox(height: 6),
+                  Text(
+                    "Order Anything within Minutes",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("Home"),
+              onTap: () {
+                Navigator.pushNamed(context, MyRoutes.resetPasswordRoute);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text("Profile"),
+              onTap: () {
+                Navigator.pushNamed(context, MyRoutes.signUpRoute);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("Settings"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text("Logout"),
+              onTap: () {
+                Navigator.pushNamed(context, MyRoutes.loginRoute);
+              },
+            ),
+          ],
         ),
       ),
     );

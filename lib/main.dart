@@ -8,17 +8,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/pages/home_page.dart';
 import 'package:flutter_catalog/pages/login_page.dart';
+import 'package:flutter_catalog/pages/reset_password.dart';
+import 'package:flutter_catalog/pages/sign_up.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 
-// entry point in the application
 void main() {
-  // runApp is called which calls MyApp()
-  playGame(score: 12, gameName: "SpiderMan");
   runApp(MyApp());
-}
-
-void playGame({required int score, String? gameName}) {
-  print("Player score is $score and game name is $gameName");
 }
 
 class MyApp extends StatelessWidget {
@@ -29,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         // primaryTextTheme: GoogleFonts.latoTextTheme(), applied only on primary text
@@ -41,6 +36,8 @@ class MyApp extends StatelessWidget {
       routes: {
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
+        MyRoutes.resetPasswordRoute: (context) => ResetPassword(),
+        MyRoutes.signUpRoute: (context) => SignUp(),
       },
     );
   }

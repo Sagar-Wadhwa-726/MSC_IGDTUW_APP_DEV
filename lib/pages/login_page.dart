@@ -2,6 +2,7 @@
 // whenever a folder added, the app should be restarted instead of just hot reloading
 
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/utils/reusable_widget.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,84 +16,118 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String text = "";
   bool changedButton = false;
+  final _formKey = GlobalKey<FormState>();
+
+  // Text Editing controllers
+  final TextEditingController _emailTextController = TextEditingController();
+  final TextEditingController _passwordTextController = TextEditingController();
+
+  moveToHomePage(context) async {
+    if (_formKey.currentState?.validate() ?? false) {
+      setState(() {
+        changedButton = true;
+      });
+      await Future.delayed(Duration(seconds: 1));
+      Navigator.pushNamed(context, MyRoutes.homeRoute);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.white,
-      child: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Image.asset("assets/images/login_image.png", fit: BoxFit.cover),
-            SizedBox(height: 20.0),
-            Text(
-              "Welcome $text",
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                fontFamily: GoogleFonts.yujiHentaiganaAkebono().fontFamily,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: <Widget>[
+              Image.asset("assets/images/login_image.png", fit: BoxFit.cover),
+              SizedBox(height: 20.0),
+              Text(
+                "Welcome $text",
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: GoogleFonts.yujiHentaiganaAkebono().fontFamily,
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-              child: Column(
-                children: <Widget>[
-                  TextFormField(
-                    onChanged: (content) {
-                      setState(() {
-                        text = content;
-                      });
-                    },
-                    decoration: InputDecoration(
-                        hintText: "Enter Username", labelText: "Username"),
-                  ),
-                  TextFormField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                        hintText: "Enter Password", labelText: "Password"),
-                  ),
-                  SizedBox(height: 50),
-                  InkWell(
-                    onTap: () async {
-                      setState(() {
-                        changedButton = true;
-                      });
-                      await Future.delayed(Duration(seconds: 1));
-                      Navigator.pushNamed(context, MyRoutes.homeRoute);
-                    },
-                    child: AnimatedContainer(
-                      duration: Duration(seconds: 1),
-                      width: changedButton ? 50 : 150,
-                      alignment: Alignment.center,
-                      child: changedButton
-                          ? Icon(Icons.done)
-                          : Text(
-                              "Login",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18),
-                            ),
-                      decoration: BoxDecoration(
-                          color: Colors.deepPurple,
-                          borderRadius:
-                              BorderRadius.circular(changedButton ? 50 : 8)),
-                    ),
-                  )
-                  // ElevatedButton(
-                  //   style: TextButton.styleFrom(
-                  //     minimumSize: Size(150, 40),
-                  //   ),
-                  //   onPressed: () {
-                  //     Navigator.pushNamed(context, MyRoutes.homeRoute);
-                  //   },
-                  //   child: Text("Login"),
-                  // ),
-                ],
+              SizedBox(height: 20),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+                child: Column(
+                  children: <Widget>[
+                    reuseableTextFormField("Enter Email", Icons.email, false,
+                        _emailTextController, true),
+                    SizedBox(height: 20),
+                    reuseableTextFormField("Enter Password", Icons.password,
+                        true, _passwordTextController, false),
+                    // TextFormField(
+                    //   validator: (value) {
+                    //     if (value!.isEmpty) {
+                    //       return "Please Enter a Username";
+                    //     }
+                    //     return null;
+                    //   },
+                    //   onChanged: (content) {
+                    //     setState(() {
+                    //       text = content;
+                    //     });
+                    //   },
+                    //   decoration: InputDecoration(
+                    //       hintText: "Enter Username", labelText: "Username"),
+                    // ),
+                    // TextFormField(
+                    //   validator: (value) {
+                    //     if (value!.isEmpty) {
+                    //       return "Please Enter a Password";
+                    //     }
+                    //     if (value.length < 6) {
+                    //       return "Password length can't be less than 6";
+                    //     }
+                    //     return null;
+                    //   },
+                    //   obscureText: true,
+                    //   decoration: InputDecoration(
+                    //       hintText: "Enter Password", labelText: "Password"),
+                    // ),
+                    SizedBox(height: 50),
+                    InkWell(
+                      onTap: () => moveToHomePage(context),
+                      child: AnimatedContainer(
+                        duration: Duration(seconds: 1),
+                        width: changedButton ? 50 : 150,
+                        height: 50,
+                        alignment: Alignment.center,
+                        child: changedButton
+                            ? Icon(Icons.done)
+                            : Text(
+                                "Login",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18),
+                              ),
+                        decoration: BoxDecoration(
+                            color: Colors.deepPurple,
+                            borderRadius:
+                                BorderRadius.circular(changedButton ? 50 : 8)),
+                      ),
+                    )
+                    // ElevatedButton(
+                    //   style: TextButton.styleFrom(
+                    //     minimumSize: Size(150, 40),
+                    //   ),
+                    //   onPressed: () {
+                    //     Navigator.pushNamed(context, MyRoutes.homeRoute);
+                    //   },
+                    //   child: Text("Login"),
+                    // ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

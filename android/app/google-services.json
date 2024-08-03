@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "927354775405",
+    "project_id": "mscusersignin",
+    "storage_bucket": "mscusersignin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927354775405:android:4da946fccea16d07e1dc64",
+        "android_client_info": {
+          "package_name": "com.example.flutter_catalog"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0h8vLGRyvWMCCrosjRWYFAlC7sPcchqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
