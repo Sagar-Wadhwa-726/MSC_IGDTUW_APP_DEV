@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
+import "package:flutter_catalog/utils/reusable_widget.dart";
 import "package:flutter_catalog/utils/routes.dart";
 
 class HomePage extends StatelessWidget {
@@ -75,7 +77,14 @@ class HomePage extends StatelessWidget {
               leading: Icon(Icons.exit_to_app),
               title: Text("Logout"),
               onTap: () {
-                Navigator.pushNamed(context, MyRoutes.loginRoute);
+                FirebaseAuth.instance.signOut().then((value) {
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(reusableSnackbar("User logged out !"));
+                  Navigator.pushNamed(context, MyRoutes.loginRoute);
+                }).onError((error, stackTrace) {
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(reusableSnackbar("Error $error"));
+                });
               },
             ),
           ],

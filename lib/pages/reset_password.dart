@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print, use_build_context_synchronously, sort_child_properties_last, prefer_final_fields, non_constant_identifier_names, unnecessary_new
 // whenever a folder added, the app should be restarted instead of just hot reloading
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/utils/reusable_widget.dart';
+import 'package:flutter_catalog/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ResetPassword extends StatefulWidget {
@@ -17,7 +19,18 @@ class _ResetPasswordState extends State<ResetPassword> {
   final _formKey = GlobalKey<FormState>();
 
   ResetPasswordUsingFirebase(context) async {
-    if (_formKey.currentState?.validate() ?? false) {}
+    if (_formKey.currentState?.validate() ?? false) {
+      FirebaseAuth.instance
+          .sendPasswordResetEmail(email: _emailTextController.text)
+          .then((value) {
+        Navigator.pushNamed(context, MyRoutes.loginRoute);
+        ScaffoldMessenger.of(context)
+            .showSnackBar(reusableSnackbar("Password reset email sent !"));
+      }).onError((error, stackTrace) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(reusableSnackbar("Error $error"));
+      });
+    }
   }
 
   @override

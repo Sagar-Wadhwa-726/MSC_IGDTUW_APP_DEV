@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print, use_build_context_synchronously, sort_child_properties_last, prefer_final_fields
 // whenever a folder added, the app should be restarted instead of just hot reloading
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/utils/reusable_widget.dart';
+import 'package:flutter_catalog/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignUp extends StatefulWidget {
@@ -20,7 +22,20 @@ class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
 
   signUpUsingFirebase(context) async {
-    if (_formKey.currentState?.validate() ?? false) {}
+    if (_formKey.currentState?.validate() ?? false) {
+      FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: _emailTextController.text,
+              password: _passwordTextController.text)
+          .then((value) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(reusableSnackbar("User Creation Successful"));
+        Navigator.pushNamed(context, MyRoutes.loginRoute);
+      }).onError((error, stackTrace) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(reusableSnackbar("Error $error"));
+      });
+    }
   }
 
   @override

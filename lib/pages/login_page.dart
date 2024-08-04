@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print, use_build_context_synchronously, sort_child_properties_last
 // whenever a folder added, the app should be restarted instead of just hot reloading
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/utils/reusable_widget.dart';
 import 'package:flutter_catalog/utils/routes.dart';
@@ -27,8 +28,20 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         changedButton = true;
       });
-      await Future.delayed(Duration(seconds: 1));
-      Navigator.pushNamed(context, MyRoutes.homeRoute);
+
+      await Future.delayed(Duration(seconds: 3));
+      FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: _emailTextController.text,
+              password: _passwordTextController.text)
+          .then((value) {
+        Navigator.pushNamed(context, MyRoutes.homeRoute);
+        ScaffoldMessenger.of(context).showSnackBar(reusableSnackbar(
+            "Welcome ${FirebaseAuth.instance.currentUser?.email}"));
+      }).onError((error, stackTrace) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(reusableSnackbar("Error $error"));
+      });
     }
   }
 
