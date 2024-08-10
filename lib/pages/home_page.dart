@@ -20,15 +20,15 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    changeImage();
+    changeImage(context);
   }
 
-  void changeImage() async {
+  void changeImage(context) async {
     setState(() {
       isLoading = true;
     });
 
-    String newUrl = await FetchMeme.fetchMeme();
+    String newUrl = await FetchMeme.fetchMeme(context);
     setState(() {
       url = newUrl;
       isLoading = false;
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                   : Image.network(url),
             ),
             ElevatedButton(
-              onPressed: () => changeImage(),
+              onPressed: () => changeImage(context),
               child: Text("Make me laugh !"),
             ),
             Spacer(),
