@@ -1,0 +1,132 @@
+{
+    "products" : [
+        {
+            "id":1,
+            "name" : "iPhone 15 Pro Max",
+            "desc" : "Apple iPhone 15 Pro Max Generation",
+            "price" : 999,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/a/r/5/-original-imagtc3kcmph6ax5.jpeg?q=70&crop=false"
+        },
+        {
+            "id":2,
+            "name" : "Pixel 7a",
+            "desc" : "Google Pixel 7a Black Color",
+            "price" : 599,
+            "color" : "#00ac51",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/n/i/d/-original-imagpgx4erjqnpzx.jpeg?q=70&crop=false"
+        },
+        {
+            "id":3,
+            "name" : "Macbook Air",
+            "desc" : "Ultra Fast MacBook Air",
+            "price" : 699,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/2/v/v/-original-imagfdeqter4sj2j.jpeg?q=70&crop=false"
+        },
+        {
+            "id":4,
+            "name" : "Lenovo Tablet",
+            "desc" : "Super sleek Lenovo Table",
+            "price" : 1999,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/tablet/4/n/0/zaae0008in-lenovo-original-imagzmkwqahk5yyb.jpeg?q=70&crop=false"
+        },
+        {
+            "id":5,
+            "name" : "Play Station 5",
+            "desc" : "Gaming Play Station 5 New",
+            "price" : 2599,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/gamingconsole/n/o/o/-original-imagzf6vfz5hjpab.jpeg?q=70&crop=false"
+        },
+        {
+            "id":6,
+            "name" : "iPad",
+            "desc" : "Tablet by Apple, Super Sleek",
+            "price" : 1099,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/tablet/r/4/m/-original-imagj72vqsfqgzpf.jpeg?q=70&crop=false"
+        },
+        {
+            "id":7,
+            "name" : "iWatch",
+            "desc" : "Apple Watch Series 9 GPS Only",
+            "price" : 899,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/smartwatch/h/c/3/-original-imagte4syszvbmt2.jpeg?q=70&crop=false"
+        },
+        {
+            "id":8,
+            "name" : "Apple Earpodes",
+            "desc" : "Lighweight and Noise Cancellation",
+            "price" : 799,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/e/a/f/-original-imagtc44nk4b3hfg.jpeg?q=70&crop=false"
+        },
+        {
+            "id":9,
+            "name" : "HP Laptop",
+            "desc" : "i9 Processor, 32 GB Ram HP Laptop",
+            "price" : 1299,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/computer/d/2/i/16-wf0055tx-gaming-laptop-hp-original-imagrwmbqhjauuer.jpeg?q=70&crop=false"
+        },
+        {
+            "id":10,
+            "name" : "Apple Homepod",
+            "desc" : "Apple's Siri, now in a Homepod",
+            "price" : 1599,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/a/n/z/-original-imagm87dh2yhk585.jpeg?q=70&crop=false"
+        },
+        {
+            "id":10,
+            "name" : "Apple Homepod",
+            "desc" : "Apple's Siri, now in a Homepod",
+            "price" : 1599,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/a/n/z/-original-imagm87dh2yhk585.jpeg?q=70&crop=false"
+        },
+        {
+            "id":10,
+            "name" : "Apple Homepod",
+            "desc" : "Apple's Siri, now in a Homepod",
+            "price" : 1599,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/a/n/z/-original-imagm87dh2yhk585.jpeg?q=70&crop=false"
+        },
+        {
+            "id":10,
+            "name" : "Apple Homepod",
+            "desc" : "Apple's Siri, now in a Homepod",
+            "price" : 1599,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/a/n/z/-original-imagm87dh2yhk585.jpeg?q=70&crop=false"
+        },
+        {
+            "id":10,
+            "name" : "Apple Homepod",
+            "desc" : "Apple's Siri, now in a Homepod",
+            "price" : 1599,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/a/n/z/-original-imagm87dh2yhk585.jpeg?q=70&crop=false"
+        },
+        {
+            "id":10,
+            "name" : "Apple Homepod",
+            "desc" : "Apple's Siri, now in a Homepod",
+            "price" : 1599,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/a/n/z/-original-imagm87dh2yhk585.jpeg?q=70&crop=false"
+        },
+        {
+            "id":10,
+            "name" : "Apple Homepod",
+            "desc" : "Apple's Siri, now in a Homepod",
+            "price" : 1599,
+            "color" : "#33505a",
+            "image" : "https://rukminim2.flixcart.com/image/832/832/xif0q/speaker/a/n/z/-original-imagm87dh2yhk585.jpeg?q=70&crop=false"
+        }
+    ]
+}

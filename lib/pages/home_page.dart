@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
-
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 import "package:flutter_catalog/controller/fetchMeme.dart";
@@ -122,6 +121,13 @@ class _HomePageState extends State<HomePage> {
                   ScaffoldMessenger.of(context)
                       .showSnackBar(reusableSnackbar("Error $error"));
                 });
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_cart_rounded),
+              title: Text("Shop Page"),
+              onTap: () {
+                Navigator.pushNamed(context, MyRoutes.shopRoute);
               },
             ),
           ],

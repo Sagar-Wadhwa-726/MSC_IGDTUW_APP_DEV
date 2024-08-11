@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_catalog/pages/home_page.dart';
 import 'package:flutter_catalog/pages/login_page.dart';
 import 'package:flutter_catalog/pages/reset_password.dart';
+import 'package:flutter_catalog/pages/shopping.dart';
 import 'package:flutter_catalog/pages/sign_up.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.resetPasswordRoute: (context) => ResetPassword(),
         MyRoutes.signUpRoute: (context) => SignUp(),
+        MyRoutes.shopRoute: (context) => ShoppingPage(),
       },
     );
   }
